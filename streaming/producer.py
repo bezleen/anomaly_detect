@@ -2,18 +2,14 @@
 # import sys  # nopep8
 # sys.path.append(".")  # nopep8
 # ----
-print("ok1")
 import json
 import random
 import time
 from datetime import datetime
 
 import numpy as np
-print("ok2")
 from settings import TRANSACTIONS_TOPIC, DELAY, OUTLIERS_GENERATION_PROBABILITY
-print("ok3")
 from utils import create_producer
-print("ok4")
 _id = 0
 producer = create_producer()
 

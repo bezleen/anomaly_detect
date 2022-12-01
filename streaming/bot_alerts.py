@@ -17,9 +17,7 @@ from utils import create_consumer
 consumer = create_consumer(topic=ANOMALIES_TOPIC, group_id=ANOMALIES_CONSUMER_GROUP)
 
 while True:
-    print("ok1")
     message = consumer.poll(timeout=50)
-    print(message)
     if message is None:
         continue
     if message.error():
@@ -28,8 +26,7 @@ while True:
 
     # Message that came from producer
     record = message.value().decode('utf-8')
-    # print(record["data"])
-    # record = json.dumps(record)
+
     print(record)
     with open("alerts.txt", 'a') as f:
         f.writelines(record)
